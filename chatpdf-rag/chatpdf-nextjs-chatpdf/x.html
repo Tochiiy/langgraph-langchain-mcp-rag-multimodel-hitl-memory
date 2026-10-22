@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thinking Animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --text-primary: #1a1a1a;
+      --text-shining: #a8a8a8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #e5e5e5;
+        --text-shining: #ffffff;
+      }
+    }
+
+    /* -------------------- */
+    /* Text shimmer (fill)  */
+    /* -------------------- */
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .animate-text-shimmer {
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* -------------------- */
+    /* Tight shadow sweep   */
+    /* -------------------- */
+    @keyframes shadow-sweep {
+      0%   { transform: translateX(-120%); opacity: 0; }
+      25%  { opacity: 1; }
+      100% { transform: translateX(120%); opacity: 0; }
+    }
+
+    .thinking-text {
+      position: relative;
+      display: inline-block;
+      /* very subtle base depth */
+      text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    }
+
+    .thinking-text::after {
+      content: "";
+      position: absolute;
+      inset: 0; /* 👈 no expansion = no big glow */
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.35) 48%,
+        rgba(255,255,255,0.6) 50%,
+        rgba(255,255,255,0.35) 52%,
+        transparent 100%
+      );
+      filter: blur(2px); /* 👈 tight blur */
+      mix-blend-mode: screen;
+      animation: shadow-sweep 2.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Dark mode tuning */
+    @media (prefers-color-scheme: dark) {
+      .thinking-text::after {
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(180,200,255,0.35) 48%,
+          rgba(220,235,255,0.65) 50%,
+          rgba(180,200,255,0.35) 52%,
+          transparent 100%
+        );
+        filter: blur(2.5px);
+      }
+    }
+
+    /* -------------------- */
+    /* Logo rotation        */
+    /* -------------------- */
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-logo-spin {
+      animation: spin-slow 2s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-black min-h-screen flex items-center justify-center">
+
+  <div class="flex items-center gap-3 px-4 py-2 bg-white dark:bg-gray-900 rounded-full shadow-sm border border-gray-100 dark:border-gray-800">
+
+    <div class="relative w-6 h-6 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full animate-logo-spin">
+        <defs>
+          <radialGradient id="ai-gradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgb(9,84,255)">
+              <animate attributeName="stop-color"
+                values="rgb(9,84,255); rgb(120,200,255); rgb(9,84,255)"
+                dur="3s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="60%" stop-color="rgb(103,102,253)" />
+            <stop offset="100%" stop-color="rgb(196,120,251)">
+              <animate attributeName="stop-color"
+                values="rgb(196,120,251); rgb(100,50,255); rgb(196,120,251)"
+                dur="4s" repeatCount="indefinite" />
+            </stop>
+          </radialGradient>
+        </defs>
+
+        <circle cx="50" cy="50" r="42" fill="url(#ai-gradient)" />
+        <circle cx="50" cy="50" r="42" fill="none"
+          stroke="rgb(82,96,253)" stroke-width="2" stroke-opacity="0.3" />
+      </svg>
+    </div>
+
+    <span class="
+      thinking-text
+      font-medium
+      bg-[linear-gradient(110deg,var(--text-primary),35%,var(--text-shining),50%,var(--text-primary),75%,var(--text-primary))]
+      bg-[length:200%_100%]
+      bg-clip-text
+      text-[14px]
+      text-transparent
+      animate-text-shimmer
+    ">
+      Thinking...
+    </span>
+
+  </div>
+
+</body>
+</html>

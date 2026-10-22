@@ -1,0 +1,51 @@
+{
+  "name": "langchain-n8n",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/tools/bash.js",
+    "lev001": "node src/level01/embedding-pipeline.js",
+    "lev0001": "node src/level01/retrieving-pipeline.js",
+    
+    "lev0002": "node src/level02/embedding-pipeline.js",
+    "lev002": "node src/level02/retrieving-pipeline.js",
+
+    "mcp-server": "node src/level03/mcp-server.js"
+   
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/parser": "^7.29.2",
+    "@google/genai": "^1.34.0",
+    "@langchain/cerebras": "^1.0.0",
+    "@langchain/classic": "^1.0.6",
+    "@langchain/cohere": "^1.0.0",
+    "@langchain/community": "^1.0.0",
+    "@langchain/core": "^1.1.17",
+    "@langchain/exa": "^0.1.0",
+    "@langchain/langgraph": "^1.1.2",
+    "@langchain/mcp-adapters": "^1.1.2",
+    "@langchain/pinecone": "^1.0.0",
+    "@langchain/tavily": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "@pinecone-database/pinecone": "^6.1.3",
+    "@playwright/mcp": "^0.0.61",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.2",
+    "langchain": "^1.0.2",
+    "playwright": "^1.57.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "simple-git": "^3.36.0",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.12",
+    "zod-to-json-schema": "^3.24.6"
+  }
+}

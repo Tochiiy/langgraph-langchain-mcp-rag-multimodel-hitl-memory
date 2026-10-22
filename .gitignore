@@ -1,0 +1,44 @@
+# ---------- Secrets ----------
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+
+# ---------- Node / JS ----------
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.eslintcache
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+
+# ---------- Runtime / databases / vector stores ----------
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+faiss_db/
+chroma_db/
+*.log
+
+# ---------- OS / editor junk ----------
+Thumbs.db
+.DS_Store
+desktop.ini
+$RECYCLE.BIN/
+
+# ---------- Large binaries & personal notes (kept locally only) ----------
+notes/
+Complete-Agentic-AI-Course-main/Agentic-AI-Interview-Preparation/*.pdf
+Complete-Agentic-AI-Course-main/Advanced-RAG/Graph-RAG/*.pptx.pdf
+Complete-Agentic-AI-Course-main/Advanced-RAG/Multimodal-RAG/Multimodal_RAG_*.pdf
+Complete-Agentic-AI-Course-main/Advanced-RAG/Multimodal-RAG/NovaCore_Multimodal_Company_Report_2026.pdf
