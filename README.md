@@ -52,7 +52,3 @@ LANGSMITH_API_KEY=...
 
 `.env` files are gitignored by the root `.gitignore`.
 
-## Notes
-
-- Course clones (e.g. `Complete-Agentic-AI-Course-main/`) keep their original structure and READMEs.
-- Large PDFs/decks and personal notes are kept locally and excluded from git.
