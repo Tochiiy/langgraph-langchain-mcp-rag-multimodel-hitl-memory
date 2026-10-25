@@ -50,5 +50,5 @@ PINECONE_API_KEY=...
 LANGSMITH_API_KEY=...
 ```
 
-`.env` files are gitignored by the root `.gitignore`.
+
 
